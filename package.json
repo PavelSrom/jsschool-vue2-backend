@@ -1,0 +1,17 @@
+{
+  "name": "fake-server",
+  "version": "1.0.0",
+  "description": "Fake JSON server hosted on Heroku",
+  "main": "app.js",
+  "scripts": {
+    "start": "json-server --watch data/db.json"
+  },
+  "keywords": ["json-server", "server", "backend", "json"],
+  "author": "Pavel Srom",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "json-server": "^0.16.3"
+  }
+}

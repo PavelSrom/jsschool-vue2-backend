@@ -1,0 +1,19 @@
+{
+  "projects": [
+    {
+      "title": "Learn React because React is the best.",
+      "details": "JSX to the moon!",
+      "completed": false,
+      "id": 1
+    },
+    {
+      "title": "wefwef wef wef wef",
+      "details": "whatever",
+      "completed": false,
+      "id": 2
+    }
+  ],
+	"todos": [],
+	"items": [],
+	"books": []
+}
