@@ -6,12 +6,18 @@
   "scripts": {
     "start": "node app.js"
   },
-  "keywords": ["json-server", "server", "backend", "json"],
+  "keywords": [
+    "json-server",
+    "server",
+    "backend",
+    "json"
+  ],
   "author": "Pavel Srom",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express-rate-limit": "^5.2.5",
+    "joi": "^17.4.0",
     "json-server": "^0.16.3"
   }
 }
