@@ -11,18 +11,36 @@ const limiter = rateLimit({
   max: process.env.NODE_ENV === "production" ? 100 : 1000,
 })
 
-const validationSchema = Joi.object({
+const createSchema = Joi.object({
   title: Joi.string().required(),
   details: Joi.string().required(),
   completed: Joi.boolean().required(),
 })
 
+const updateSchema = Joi.object({
+  completed: Joi.boolean().required(),
+})
+
 server.use(jsonServer.bodyParser)
 server.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, PATCH")
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Accept, Content-Type, Authorization, X-Requested-With"
+  )
+
   try {
-    if (["POST", "PATCH"].includes(req.method)) {
-      const { error } = validationSchema.validate(req.body)
-      if (error) return res.status(400).send({ message: "Invalid request" })
+    if (req.method === "POST") {
+      const { error } = createSchema.validate(req.body)
+      if (error)
+        return res.status(400).send({ message: "Invalid request", error })
+    }
+
+    if (req.method === "PATCH") {
+      const { error } = updateSchema.validate(req.body)
+      if (error)
+        return res.status(400).send({ message: "Invalid request", error })
     }
 
     next()
