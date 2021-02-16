@@ -4,7 +4,7 @@
   "description": "Fake JSON server hosted on Heroku",
   "main": "app.js",
   "scripts": {
-    "start": "json-server --watch data/db.json"
+    "start": "node app.js"
   },
   "keywords": ["json-server", "server", "backend", "json"],
   "author": "Pavel Srom",
